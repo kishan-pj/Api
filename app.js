@@ -1,7 +1,8 @@
 const express= require('express');
 const app = express();
 const userroute =require('./routes/user-route');
-const patientroute =require('./routes/patient-routejs');
+const patientroute =require('./routes/patient-route.js');
+const registerRoute =require('./routes/register');
 const mongoose =require('mongoose');
 const bodyparser =require('body-parser');
 
@@ -19,6 +20,7 @@ app.use(bodyparser.json());
 
 app.use('/user',userroute);
 app.use('/patient',patientroute);
+app.use('/register',registerRoute);
 
 app.use((req,resp,next)=>{
     resp.status(404).json({
